@@ -2,8 +2,8 @@ const KEY_CODE_LEFT = 37;
 const KEY_CODE_RIGHT = 39;
 const KEY_CODE_SPACE = 32;
 
-const GAME_WIDTH = 800;
-const GAME_HEIGHT = 600;
+const GAME_WIDTH = document.body.clientWidth - 500;
+const GAME_HEIGHT = document.body.clientHeight;
 
 const PLAYER_WIDTH = 20;
 const PLAYER_MAX_SPEED = 600.0;
@@ -16,12 +16,12 @@ const ENEMY_VERTICAL_PADDING = 70;
 const ENEMY_VERTICAL_SPACING = 80;
 const ENEMY_COOLDOWN = 5.0;
 
-const GAME_STATE = {
+let GAME_STATE = {
   lastTime: Date.now(),
   leftPressed: false,
   rightPressed: false,
   spacePressed: false,
-  playerX: 0,
+  playerX: null,
   playerY: 0,
   playerCooldown: 0,
   lasers: [],
@@ -97,7 +97,7 @@ function updatePlayer(dt, $container) {
   if (GAME_STATE.playerCooldown > 0) {
     GAME_STATE.playerCooldown -= dt;
   }
-
+  
   const player = document.querySelector(".player");
   setPosition(player, GAME_STATE.playerX, GAME_STATE.playerY);
 }
@@ -172,7 +172,7 @@ function updateEnemies(dt, $container) {
     setPosition(enemy.$element, x, y);
     enemy.cooldown -= dt;
     if (enemy.cooldown <= 0) {
-      createEnemyLaser($container, x, y);
+      //createEnemyLaser($container, x, y);
       enemy.cooldown = ENEMY_COOLDOWN;
     }
   }
@@ -282,3 +282,97 @@ init();
 window.addEventListener("keydown", onKeyDown);
 window.addEventListener("keyup", onKeyUp);
 window.requestAnimationFrame(update);
+
+
+////////////////////////
+//////// VIDEO /////////
+////////////////////////
+
+
+const video = document.getElementById("myvideo");
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
+
+let imgindex = 1
+let isVideo = false;
+let model = null;
+let videoInterval = 5
+
+const modelParams = {
+    flipHorizontal: true, // flip e.g for video  
+    maxNumBoxes: 1, // maximum number of boxes to detect
+    iouThreshold: 0.5, // ioU threshold for non-max suppression
+    scoreThreshold: 0.6, // confidence threshold for predictions.
+}
+
+function startVideo() {
+    handTrack.startVideo(video).then(function (status) {
+        console.log("video started", status);
+        if (status) {
+            isVideo = true
+            runDetection()
+        } else {
+        }
+    });
+}
+
+function toggleVideo() {
+    if (!isVideo) {
+        startVideo();
+    } else {
+        handTrack.stopVideo(video)
+        isVideo = false;
+    }
+}
+
+toggleVideo();
+
+function runDetection() {
+    model.detect(video).then(predictions => {
+        // console.log("Predictions: ", predictions);
+        // get the middle x value of the bounding box and map to paddle location
+        model.renderPredictions(predictions, canvas, context, video);
+        if (predictions[0]) {
+            let midval = predictions[0].bbox[0] + (predictions[0].bbox[2] / 2)
+            gamex = document.body.clientWidth * (midval / video.width)
+            updatePlayerControl(gamex)
+            console.log('Predictions: ', gamex);
+
+        }
+        if (isVideo) {
+            setTimeout(() => {
+                runDetection(video)
+            }, videoInterval);
+        }
+    });
+}
+
+// Load the model.
+handTrack.load(modelParams).then(lmodel => {
+    // detect objects in the image.
+    model = lmodel
+    $(".overlaycenter").animate({
+        opacity: 0,
+        fontSize: "0vw"
+    });
+});
+
+let windowXRange, worldXRange = 0
+let paddle
+let Vec2
+let accelFactor
+
+// TestBed Details
+windowHeight = $(document).height()
+windowWidth = document.body.clientWidth
+
+var scale_factor = 10
+var SPACE_WIDTH = windowWidth / scale_factor;
+var SPACE_HEIGHT = windowHeight / scale_factor;
+
+windowHeight = window.innerHeight
+windowWidth = window.innerWidth
+
+function updatePlayerControl(x) {
+    GAME_STATE.playerX = gamex;
+}
