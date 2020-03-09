@@ -1,6 +1,6 @@
 # Speciale Input - Output
 
-Team #
+Team 6
 1. Timo Brandt
 2. Max Bronstring
 
@@ -14,6 +14,10 @@ Deze library maakt gebruik van je camera waarmee hij vervolgens de positie van d
 De ruimteschepen komen op je af vliegen vanaf de bovenkant van je scherm. De vijandelijke schepen kunnen ook op je schieten en je hierdoor verslaan.
 
 Als speler kun je bewegen door je hand te bewegen en schieten door een vuist te maken met je hand.
+
+* Writing Diagram:
+
+* Video:
 
 ## Portfolio
 * [Onderzoek]()
