@@ -15,10 +15,6 @@ De ruimteschepen komen op je af vliegen vanaf de bovenkant van je scherm. De vij
 
 Als speler kun je bewegen door je hand te bewegen en schieten door een vuist te maken met je hand.
 
-* Writing Diagram:
-
-* Video:
-
 ## Scrum
 
 Github: https://github.com/MaxBrons/InputOutput
@@ -29,5 +25,7 @@ Trello: https://trello.com/b/583k7Ss0/inputoutput
 * [Bronnenlijst]()
 * [Onderzoek]()
 * [Ontwerp]()
+* [Ontwerpdocument]()
+* [Testplan]()
 * [Testrapportage]()
 * [Presentatie]()
