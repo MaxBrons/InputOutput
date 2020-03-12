@@ -21,9 +21,9 @@ Als speler kun je bewegen door je hand te bewegen en schieten door een vuist te 
 
 ## Scrum
 
-Github:https://github.com/MaxBrons/InputOutput
+Github: https://github.com/MaxBrons/InputOutput
 
-Trello:https://trello.com/b/583k7Ss0/inputoutput
+Trello: https://trello.com/b/583k7Ss0/inputoutput
 
 ## Portfolio
 * [Onderzoek]()
