@@ -26,6 +26,7 @@ Github: https://github.com/MaxBrons/InputOutput
 Trello: https://trello.com/b/583k7Ss0/inputoutput
 
 ## Portfolio
+* [Bronnenlijst]()
 * [Onderzoek]()
 * [Ontwerp]()
 * [Testrapportage]()
