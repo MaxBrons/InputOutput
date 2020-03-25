@@ -22,7 +22,7 @@ Github: https://github.com/MaxBrons/InputOutput
 Trello: https://trello.com/b/583k7Ss0/inputoutput
 
 ## Portfolio
-* [Bronnenlijst]()
+* [Bronnenlijst](https://docs.google.com/document/d/1GZ7oKfzOWSaNN7A8asuPy6qQH4b6fFw6XmQIVKAMuSo/edit?usp=sharing)
 * [Onderzoek]()
 * [Ontwerp]()
 * [Ontwerpdocument]()
