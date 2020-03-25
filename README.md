@@ -28,4 +28,5 @@ Trello: https://trello.com/b/583k7Ss0/inputoutput
 * [Ontwerpdocument]()
 * [Testplan]()
 * [Testrapportage]()
-* [Presentatie deel 2](https://docs.google.com/presentation/d/1VzMv8eQELXjIYigdCf5jAPrWt2TQaIHFJfumCPdw3Qo/edit#slide=id.g71fd463a8e_0_10)
+* [Presentatie deel 2](https://docs.google.com/presentation/d/1VzMv8eQELXjIYigdCf5jAPrWt2TQaIHFJfumCPdw3Qo/edit?usp=sharing)
+* [Presentatie deel 3]()
