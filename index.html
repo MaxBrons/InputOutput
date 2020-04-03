@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Max Bronstring, Timo Brandt">
+    <link rel="stylesheet" href="styles.css">
+    <title>Handtracking Space Game</title>
+</head>
+
+<body>
+    <!-- Handtrack Video -->
+    <video class="videobox" autoplay="autoplay" id="myvideo"></video>
+    <!-- Game Canvas -->
+    <canvas id="canvas"></canvas>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen">
+        <h1>GAME OVER</h1>
+        <h2>You lost the game</h2>
+        <button class="btn" onclick="window.location.reload()">Restart</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/planck-js/0.1.44/planck-with-testbed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handtrackjs@latest/dist/handtrack.min.js"> </script>
+    <script src="lib/Vector2D.js"></script>
+    <script src="lib/GameManager.js"></script>
+    <script src="lib/Handtrack.js"></script>
+    <script src="script/Player.js"></script>
+    <script src="script/Enemy.js"></script>
+    <script src="script/Laser.js"></script>
+    <script src="script/index.js" onload="init()"></script>
+</body>
+
+</html>
