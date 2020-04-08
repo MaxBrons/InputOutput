@@ -16,11 +16,11 @@ Als speler kun je bewegen door je hand te bewegen en schieten door schiet,shoot,
 De voice recognition doen we via Artyom.js omdat we dan in heel veel talen kunnen herkennen of iemand schiet zegt.
 
 
-## Scrum
+## Bijhouden werp
 
 Github: https://github.com/MaxBrons/InputOutput
 
-Trello: https://trello.com/b/583k7Ss0/inputoutput
+Logboek: https://docs.google.com/spreadsheets/d/1iNrScwpTHDg3DIEJ6CSdqQTXJoL4mGnnGUdihcbA3Ko/edit?usp=sharing
 
 ## Portfolio
 * [Bronnenlijst](https://docs.google.com/document/d/1GZ7oKfzOWSaNN7A8asuPy6qQH4b6fFw6XmQIVKAMuSo/edit?usp=sharing)
