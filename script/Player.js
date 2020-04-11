@@ -1,27 +1,24 @@
-class Player {
-    constructor(img, position, speed, size) {
-        this.image = new Image();
-        this.image.src = img;
-        this.position = position;
-        this.speed = speed;
-        this.size = size;
-        this.handtrack = new Handtrackjs();
+class Player extends Entity{
+    constructor(img, position, speed, size, active) {
+        super(img,position,speed,size,active);
+        laserManager.addDrawablePositionObject(this);
         this.health = 1;
+        this.source = "Player";
     }
 
     draw(context) {
-        context.drawImage(this.image, this.position.x, this.position.y, this.size.x, this.size.y);
+        context.drawImage(this.image, this.position.x - this.image.width / 4, this.position.y - this.image.height / 4, this.size.x, this.size.y);
     }
 
-    update() {
-        this.position.x += this.speed * Math.cos(this.handtrack.posx);
-        this.position.y += this.speed * Math.cos(this.handtrack.posy);
-    }
-
-    damage(){
-        if(this.health > 1)
+    destroy() {
+        if (this.health > 1)
             this.health -= 1;
-        else if(this.health <= 1)
-            gamemanager.gameOver();
+        else if (this.health <= 1)
+            gameManager.gameOver();
+    }
+
+    shoot() {
+        laserManager.spawnLaser(this, "Player", false);
+        console.log("Laser Fired!");
     }
 }

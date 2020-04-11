@@ -4,64 +4,82 @@ const context = canvas.getContext('2d');
 const width = window.innerWidth - 70;
 const height = window.innerHeight;
 
-//GameManager
-let gamemanager = new GameManager();
+//Managers
+let gameManager = new GameManager();
+let artyomManager = new ArtyomManager();
+let laserManager = new LaserManager();
+
+//InputHandler
+let inputHandler = new InputHandler();
 
 //Player
-let player = new Player("img/player-blue-1.png", new Vector2D(100, 600), -15, new Vector2D(50, 50));
-
-//Laser
-let lasers = [];
-const LASER_MAX_SPEED = 300.0;
-const LASER_COOLDOWN = 0.5;
+let player = new Player("img/player-blue-1.png", new Vector2D(100, 700), 1, new Vector2D(50, 50), true);
 
 //Enemy
 let enemies = [];
 const e_Amount_Per_Row = 10;
-const e_Row_Padding = 3;
-const e_Vertical_Padding = 80;
-const e_Vertical_Spacing = 80;
+const e_Amount_Per_Column = 3;
+const e_Row_Padding = 25;
+const e_Vertical_Padding = 500;
+const e_Vertical_Spacing = 100;
 const e_Cooldown = 5.0;
 
-canvas.width = width - 200;
+canvas.width = width - document.getElementById("myvideo").width/3.5;
 canvas.height = height;
 
-function init() {
-  for (let i = 0; i < 30; i++) {
-    lasers.push(new Laser("img/laser-blue-1.png", new Vector2D(300, 400), "sound/sfx-laser1.ogg"));
-  }
+//Initialization
+artyomManager.init();
+laserManager.initialize();
 
+//Spawns the enemies
+function initialize() {
   let i = 0;
-  const enemySpacing = (canvas.width/ e_Amount_Per_Row - 1);
-  for (let y = 0; y < 3; y++) {
-    let yPos = e_Vertical_Padding + y * e_Vertical_Spacing;
+  const enemySpacing = (canvas.width / e_Amount_Per_Row - 1);
+  for (let y = 0; y < e_Amount_Per_Column; y++) {
+    let yPos = ((height / e_Vertical_Padding) * 20) + (y * e_Vertical_Spacing);
     for (let x = 0; x < e_Amount_Per_Row; x++) {
-      let xPos = 40 + x * enemySpacing + e_Row_Padding;
-      enemies.push(new Enemy("img/enemy-blue-1.png", new Vector2D(xPos, yPos), 300, new Vector2D(50, 50)));
-      enemies[i].active = true;
+      let xPos = (width / e_Row_Padding) + (x * enemySpacing);
+      enemies.push(new Enemy("img/enemy-blue-1.png", new Vector2D(xPos, yPos), 300, new Vector2D(50, 50), true));
+      laserManager.addDrawablePositionObject(enemies[i]);
       i++;
     }
   }
-}
 
+  let interval = 1000;
+  setInterval(() => {
+    enemies.forEach((e) => e.shoot(5));
+
+    if (artyomManager.match)
+      player.shoot();
+  }, 500);
+}
+initialize();
+
+//Draws and/or Updates the Entity
 function animate() {
-  if(gamemanager.active){
+  if (gameManager.gameState == gameManager.gameStateEnum.running) {
     requestAnimationFrame(animate);
     context.clearRect(0, 0, width, height);
-  
-    //Update Enemies, Player and Lasers
-    for (let i = 0; i < enemies.length; i++) { enemies[i].draw(context); }
-    for (let i = 0; i < lasers.length; i++) { lasers[i].draw(context); }
-    player.draw(context);
-  }
-}
-player.update();
-animate();
 
-function laserSpawn(){
-  for (let i = 0; i < lasers.length; i++) {
-    lasers[i].source = "Enemy";
-    lasers[i].target = "Player";
-    lasers[i].setActive(enemies[0].position.x,enemies[0].position.y);
+    //Update user input
+    inputHandler.update();
+
+    //Update Enemies, Player and Lasers
+    player.draw(context); //Update the Player
+    laserManager.update(); //Update all Laser
+
+    if (enemies.length > 0) {
+      // Update all Enemies
+      enemies.forEach((e) => e.draw(context));
+    }
+    else {
+      //Set the gamestate to stopped, so that the winning screen is shown
+      gameManager.gameState = gameManager.gameStateEnum.stopped;
+      gameManager.gameWon(); //When all enemies are dead, show the win screen
+    }
+    // else if (gameManager.gameState == gameManager.gameStateEnum.pauzed){
+    //   gameManager.pause(); //Pause the game
+    // }
   }
 }
+animate();
