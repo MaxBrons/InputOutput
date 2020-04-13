@@ -16,7 +16,7 @@ Als speler kun je bewegen door je hand te bewegen en schieten door schiet,shoot,
 De voice recognition doen we via Artyom.js omdat we dan in heel veel talen kunnen herkennen of iemand schiet zegt.
 
 
-## Bijhouden werp
+## Bijhouden werk
 
 Github: https://github.com/MaxBrons/InputOutput
 
