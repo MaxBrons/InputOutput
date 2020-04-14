@@ -46,10 +46,6 @@ function initialize() {
   }
 
   setInterval(() => {
-    if(canvas.width < width - 200){
-      canvas.width = width;
-      canvas.height = height;
-    }
     if (gameManager.gameState == gameManager.gameStateEnum.running) {
       enemies.forEach((e) => e.shoot(5));
 
