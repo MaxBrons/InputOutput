@@ -4,6 +4,10 @@ const context = canvas.getContext('2d');
 const width = window.innerWidth - 70;
 const height = window.innerHeight;
 
+///UI interaction///
+let button = document.getElementById("trackingTypeButton");
+let trackingTypeText = document.getElementById("trackingType");
+
 //Managers
 let gameManager = new GameManager();
 let artyomManager = new ArtyomManager();
@@ -44,7 +48,7 @@ function initialize() {
       i++;
     }
   }
-  
+
   gameManager.changeGameState(0);
 
   setInterval(() => {
@@ -90,3 +94,7 @@ function animate() {
   }
 }
 animate();
+
+button.onclick = () => {
+  inputHandler.toggleInput();
+}
