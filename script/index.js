@@ -46,9 +46,11 @@ function initialize() {
   }
 
   setInterval(() => {
-    if (gameManager.gameState == gameManager.gameStateEnum.running) {
+    if (gameManager.checkGameState(0)) {
+      //Let all enemies shoot
       enemies.forEach((e) => e.shoot(2));
 
+      //Check player voice input
       if (artyomManager.match)
         player.shoot();
     }
@@ -58,7 +60,7 @@ initialize();
 
 //Draws and/or Updates the Entity
 function animate() {
-  if (gameManager.gameState == gameManager.gameStateEnum.running) {
+  if (gameManager.checkGameState(0)) {
     requestAnimationFrame(animate);
     context.clearRect(0, 0, width, height);
 
@@ -75,11 +77,11 @@ function animate() {
     }
     else {
       //Set the gamestate to stopped, so that the winning screen is shown
-      gameManager.gameState = gameManager.gameStateEnum.stopped;
+      gameManager.changeGameState(1);
       if (enemies.length <= 0)
         gameManager.gameWon(); //When all enemies are dead, show the win screen
     }
-    // else if (gameManager.gameState == gameManager.gameStateEnum.pauzed){
+    // else if (gameManager.checkGameState(2)){
     //   gameManager.pause(); //Pause the game
     // }
   }

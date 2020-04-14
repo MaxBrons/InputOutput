@@ -21,6 +21,5 @@ class Player extends Entity{
 
     shoot() {
         laserManager.spawnLaser(this, "Player", false);
-        console.log("Laser Fired!");
     }
 }
