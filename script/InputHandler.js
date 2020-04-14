@@ -9,14 +9,15 @@ class InputHandler {
     }
 
     update() {
-        if (this.inputType == this.inputTypes.handtrack) {
-            document.removeEventListener('mousemove', this.mouseUpdate);
+        if (this.checkInputType(0)) {
             if (handTrack.posx > player.image.width / 4 && handTrack.posx < canvas.width - player.image.width / 4) {
                 player.position.x = handTrack.posx * 1.2;
                 //player.position.x = player.speed * Math.cos(this.handtrack.posx) / 60;
             }
-        } else if (this.inputType == this.inputTypes.mouse) {
-            document.addEventListener('mousemove', this.mouseUpdate);
+        } else if (this.checkInputType(1)) {
+            document.addEventListener('mousemove', this.mouseUpdate, {
+                once: true
+            });
         }
     }
 
