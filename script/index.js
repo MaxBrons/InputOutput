@@ -47,7 +47,7 @@ function initialize() {
 
   setInterval(() => {
     if (gameManager.gameState == gameManager.gameStateEnum.running) {
-      enemies.forEach((e) => e.shoot(5));
+      enemies.forEach((e) => e.shoot(2));
 
       if (artyomManager.match)
         player.shoot();

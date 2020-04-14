@@ -5,12 +5,12 @@ class InputHandler {
             handtrack: 0,
             mouse: 1
         }
-        this.inputType = this.inputTypes.mouse;
+        this.inputType = this.inputTypes.handtrack;
     }
 
     update() {
         if (this.inputType == this.inputTypes.handtrack) {
-            player.position.x = this.handtrack.posx;
+            player.position.x = handTrack.posx;
             //player.position.x = player.speed * Math.cos(this.handtrack.posx) / 60;
         } else if (this.inputType == this.inputTypes.mouse) {
             document.addEventListener('mousemove', (evt) => {

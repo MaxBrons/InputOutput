@@ -47,9 +47,7 @@ function runDetection() {
         model.renderPredictions(predictions, canvas, context, video);
         if (predictions[0]) {
             let midval = predictions[0].bbox[0] + (predictions[0].bbox[2] / 2);
-            this.posx = document.body.clientWidth * (midval / video.width);
-            this.posy = document.body.clientHeight * (midval / video.height);
-            console.log('Predictions: ', predictions);
+            handTrack.posx = document.body.clientWidth * (midval / video.width);
         }
         if (isVideo) {
             setTimeout(() => {
