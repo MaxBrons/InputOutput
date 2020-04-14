@@ -24,7 +24,7 @@ const e_Vertical_Padding = 500;
 const e_Vertical_Spacing = 100;
 const e_Cooldown = 5.0;
 
-canvas.width = width - document.getElementById("myvideo").width/3.5;
+canvas.width = width - 200;
 canvas.height = height;
 
 //Initialization
@@ -45,12 +45,17 @@ function initialize() {
     }
   }
 
-  let interval = 1000;
   setInterval(() => {
-    enemies.forEach((e) => e.shoot(5));
+    if(canvas.width < width - 200){
+      canvas.width = width;
+      canvas.height = height;
+    }
+    if (gameManager.gameState == gameManager.gameStateEnum.running) {
+      enemies.forEach((e) => e.shoot(5));
 
-    if (artyomManager.match)
-      player.shoot();
+      if (artyomManager.match)
+        player.shoot();
+    }
   }, 500);
 }
 initialize();
@@ -75,7 +80,8 @@ function animate() {
     else {
       //Set the gamestate to stopped, so that the winning screen is shown
       gameManager.gameState = gameManager.gameStateEnum.stopped;
-      gameManager.gameWon(); //When all enemies are dead, show the win screen
+      if (enemies.length <= 0)
+        gameManager.gameWon(); //When all enemies are dead, show the win screen
     }
     // else if (gameManager.gameState == gameManager.gameStateEnum.pauzed){
     //   gameManager.pause(); //Pause the game

@@ -13,8 +13,10 @@ class Player extends Entity{
     destroy() {
         if (this.health > 1)
             this.health -= 1;
-        else if (this.health <= 1)
+        else if (this.health <= 1){
             gameManager.gameOver();
+            gameManager.gameState = gameManager.gameStateEnum.stopped;
+        }
     }
 
     shoot() {

@@ -10,7 +10,8 @@ class InputHandler {
 
     update() {
         if (this.inputType == this.inputTypes.handtrack) {
-            player.position.x = player.speed * Math.cos(this.handtrack.posx) / 60;
+            player.position.x = this.handtrack.posx;
+            //player.position.x = player.speed * Math.cos(this.handtrack.posx) / 60;
         } else if (this.inputType == this.inputTypes.mouse) {
             document.addEventListener('mousemove', (evt) => {
                 if (evt.clientX > player.image.width/3 && evt.clientX < canvas.width - player.image.width/3)
