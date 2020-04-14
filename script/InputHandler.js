@@ -1,6 +1,5 @@
 class InputHandler {
     constructor() {
-        this.handtrack = new Handtrackjs();
         this.inputTypes = {
             handtrack: 0,
             mouse: 1
@@ -42,6 +41,7 @@ class InputHandler {
             trackingTypeText.innerHTML = "Mouse";
         }
         else if (inputHandler.checkInputType(1)) {
+            startVideo();
             inputHandler.changeInputType(0);
             trackingTypeText.innerHTML = "Hand Tracking";
         }

@@ -1,10 +1,3 @@
-class Handtrackjs{
-    constructor(){
-        this.posx = null;
-        this.posy = null;
-    }
-}
-
 const video = document.getElementById("myvideo");
 
 let imgindex = 1;
@@ -43,10 +36,11 @@ toggleVideo();
 function runDetection() {
     if(inputHandler.checkInputType(0)){
         model.detect(video).then(predictions => {
-            // console.log("Predictions: ", predictions);
             // get the middle x value of the bounding box and map to paddle location
-            model.renderPredictions(predictions, canvas, context, video);
+            model.renderPredictions(predictions, canvas, context, video);     
             if (predictions[0]) {
+                console.log("iets");
+                
                 let midval = predictions[0].bbox[0] + (predictions[0].bbox[2] / 2);
                 handTrack.posx = document.body.clientWidth * (midval / video.width);
             }
