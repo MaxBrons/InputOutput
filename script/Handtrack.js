@@ -41,20 +41,22 @@ function toggleVideo() {
 toggleVideo();
 
 function runDetection() {
-    model.detect(video).then(predictions => {
-        // console.log("Predictions: ", predictions);
-        // get the middle x value of the bounding box and map to paddle location
-        model.renderPredictions(predictions, canvas, context, video);
-        if (predictions[0]) {
-            let midval = predictions[0].bbox[0] + (predictions[0].bbox[2] / 2);
-            handTrack.posx = document.body.clientWidth * (midval / video.width);
-        }
-        if (isVideo) {
-            setTimeout(() => {
-                runDetection(video);
-            }, videoInterval);
-        }
-    });
+    if(inputHandler.checkInputType(0)){
+        model.detect(video).then(predictions => {
+            // console.log("Predictions: ", predictions);
+            // get the middle x value of the bounding box and map to paddle location
+            model.renderPredictions(predictions, canvas, context, video);
+            if (predictions[0]) {
+                let midval = predictions[0].bbox[0] + (predictions[0].bbox[2] / 2);
+                handTrack.posx = document.body.clientWidth * (midval / video.width);
+            }
+            if (isVideo) {
+                setTimeout(() => {
+                    runDetection(video);
+                }, videoInterval);
+            }
+        });
+    }
 }
 
 // Load the model.
