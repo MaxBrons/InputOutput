@@ -10,7 +10,7 @@ const video = document.getElementById("myvideo");
 let imgindex = 1;
 let isVideo = false;
 let model = null;
-let videoInterval = 5;
+let videoInterval = 100;
 
 const modelParams = {
     flipHorizontal: true, // flip e.g for video  
