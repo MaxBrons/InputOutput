@@ -29,4 +29,6 @@ Logboek: https://docs.google.com/spreadsheets/d/1iNrScwpTHDg3DIEJ6CSdqQTXJoL4mGn
 * [Ontwerpdocument]()
 * [Testrapportage](https://docs.google.com/document/d/1cGfImtkNtVndF1Yvuz-BabvDZiKxepTjH0EUcTnLNVY/edit?usp=sharing)
 * [Product Demo](https://youtu.be/ByJ-a42W7Gw)
-* [Presentatie deel 1-2-3](https://docs.google.com/presentation/d/1VzMv8eQELXjIYigdCf5jAPrWt2TQaIHFJfumCPdw3Qo/edit?usp=sharing)
+* [Presentatie deel 2](https://docs.google.com/presentation/d/1VzMv8eQELXjIYigdCf5jAPrWt2TQaIHFJfumCPdw3Qo/edit?usp=sharing)
+* [Presentatie deel 3](https://docs.google.com/presentation/d/16KZu9XYNDIiDBxifQG6a_C628Lct1CnYmfsFCuugVNM/edit?usp=sharing)
+
