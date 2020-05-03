@@ -21,8 +21,10 @@ class InputHandler {
     }
 
     handTrackUpdate(boxSize){
-        console.log(bBox[0]);
-        //if(boxSize < bBox/2)
+
+        if(boxSize < bBox * 0.90){
+            console.log("fakka")
+        }
     }
 
     mouseUpdate(evt){

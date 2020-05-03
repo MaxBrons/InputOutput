@@ -41,10 +41,9 @@ function runDetection() {
             model.renderPredictions(predictions, canvas, context, video);     
             if (predictions[0]) {                
                 let midval = predictions[0].bbox[0] + (predictions[0].bbox[2] / 2);
-                inputHandler.handTrackUpdate(predictions[0].bbox[0]);
-                bBox = predictions[0].bBox[0];
+                inputHandler.handTrackUpdate(predictions[0].bbox[3]);
+                bBox = predictions[0].bbox[3];
                 handTrack.posx = document.body.clientWidth * (midval / video.width);
-                console.log(predictions);
             }
             if (isVideo) {
                 setTimeout(() => {
