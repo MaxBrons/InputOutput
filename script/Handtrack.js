@@ -3,7 +3,7 @@ const video = document.getElementById("myvideo");
 let imgindex = 1;
 let isVideo = false;
 let model = null;
-let videoInterval = 100;
+let videoInterval = 10;
 let bBox = 0;
 
 const modelParams = {

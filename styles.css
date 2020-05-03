@@ -93,28 +93,28 @@ canvas{
   -webkit-text-fill-color: transparent;
 }
 
-#startScreen{
+#startScreen #startScreenContent{
   font-size: 2em;
     display: none;
     position: absolute;
     top: 0;
     background: linear-gradient(135deg, orange 0%,orange 50%,orange 50%,white 50%,grey 100%);
     color: white;
-    padding: 25% 50%;
+    padding: 20% 30%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     text-align: center;
     animation: move-in 1s;
 }
 
-#startScreen h2{
+#startScreen #startScreenContent h2{
   background: linear-gradient(135deg, white 0%,white 82%,black 82%, black 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-#startScreen h3{
-  background: linear-gradient(135deg, white 0%,white 36%,black 36%, black 100%);
+#startScreen #startScreenContent h3{
+  background: linear-gradient(135deg, white 0%,white 46%,black 36%, black 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
