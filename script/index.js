@@ -5,6 +5,7 @@ const width = window.innerWidth - 70;
 const height = window.innerHeight;
 
 ///UI interaction///
+let startButton = document.getElementById("startButton");
 let button = document.getElementById("trackingTypeButton");
 let trackingTypeText = document.getElementById("trackingType");
 
@@ -31,9 +32,9 @@ const e_Cooldown = 5.0;
 canvas.width = width - 200;
 canvas.height = height;
 
-//Initialization
-artyomManager.init();
-laserManager.initialize();
+gameManager.startScreen();
+
+
 
 //Spawns the enemies
 function initialize() {
@@ -58,7 +59,6 @@ function initialize() {
     }
   }, 500);
 }
-initialize();
 
 //Draws and/or Updates the Entity
 function animate() {
@@ -82,12 +82,19 @@ function animate() {
         gameManager.gameWon(); //When all enemies are dead, show the win screen
     }
     // else if (gameManager.checkGameState(2)){
-    //   gameManager.pause(); //Pause the game
-    // }
+      //   gameManager.pause(); //Pause the game
+      // }
+    }
   }
-}
-animate();
-
+  startButton.onclick = () => {
+    //Initialization
+    artyomManager.init();
+    laserManager.initialize();
+    initialize();
+    animate();
+    gameManager.gameStart();
+  }
 button.onclick = () => {
   inputHandler.toggleInput();
 }
+
