@@ -57,6 +57,11 @@ function initialize() {
       enemies.forEach((e) => e.shoot(3));
     }
   }, 500);
+  setInterval(() => {
+    if (inputHandler.checkInputType(1)) {
+      player.shoot();
+    }
+  }, 750);
 }
 
 //Draws and/or Updates the Entity
@@ -81,18 +86,18 @@ function animate() {
         gameManager.gameWon(); //When all enemies are dead, show the win screen
     }
     // else if (gameManager.checkGameState(2)){
-      //   gameManager.pause(); //Pause the game
-      // }
-    }
+    //   gameManager.pause(); //Pause the game
+    // }
   }
-  startButton.onclick = () => {
-    //Initialization
-    artyomManager.init();
-    laserManager.initialize();
-    initialize();
-    animate();
-    gameManager.gameStart();
-  }
+}
+startButton.onclick = () => {
+  //Initialization
+  artyomManager.init();
+  laserManager.initialize();
+  initialize();
+  animate();
+  gameManager.gameStart();
+}
 button.onclick = () => {
   inputHandler.toggleInput();
 }

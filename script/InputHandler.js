@@ -39,13 +39,13 @@ class InputHandler {
     }
 
     toggleInput() {
-        if (inputHandler.checkInputType(0)) {
-            inputHandler.changeInputType(1);
+        if (this.checkInputType(0)) {
+            this.changeInputType(1);
             trackingTypeText.innerHTML = "Mouse";
         }
-        else if (inputHandler.checkInputType(1)) {
+        else if (this.checkInputType(1)) {
             startVideo();
-            inputHandler.changeInputType(0);
+            this.changeInputType(0);
             trackingTypeText.innerHTML = "Hand Tracking";
         }
     }
