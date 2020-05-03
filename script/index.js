@@ -32,9 +32,8 @@ const e_Cooldown = 5.0;
 canvas.width = width - 200;
 canvas.height = height;
 
+//Display start screen
 gameManager.startScreen();
-
-
 
 //Spawns the enemies
 function initialize() {

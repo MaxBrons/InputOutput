@@ -18,7 +18,7 @@ class Laser extends Entity {
         }
         else if (this.rotated) {
             this.position.y += this.speed;
-            this.image.src = "img/laser-blue-1-rotated.png";
+            this.image.src = "img/laser-red-16.png";
         }
 
         if (laserManager.entities.length > 0) {

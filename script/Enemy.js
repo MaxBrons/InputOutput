@@ -18,7 +18,6 @@ class Enemy extends Entity {
 
     shoot(percentate) {
         if(this.active){
-            let rand = Math.random() * 1000;
             let randBool = (Math.random() * 100 < percentate) ? true : false;
     
             if (randBool) {

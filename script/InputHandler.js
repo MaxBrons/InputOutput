@@ -11,23 +11,19 @@ class InputHandler {
         if (this.checkInputType(0)) {
             if (handTrack.posx > player.image.width / 4 && handTrack.posx < canvas.width - player.image.width / 4) {
                 player.position.x = handTrack.posx * 1.2;
-                //player.position.x = player.speed * Math.cos(this.handtrack.posx) / 60;
             }
         } else if (this.checkInputType(1)) {
-            document.addEventListener('mousemove', this.mouseUpdate, {
-                once: true
-            });
+            document.addEventListener('mousemove', this.mouseUpdate, { once: true });
         }
     }
 
-    handTrackUpdate(boxSize){
-
-        if(boxSize < bBox * 0.90){
-            console.log("fakka")
+    handTrackUpdate(boxSize) {
+        if (boxSize < bBox * 0.90) {
+            player.shoot();
         }
     }
 
-    mouseUpdate(evt){
+    mouseUpdate(evt) {
         if (evt.clientX > player.image.width / 4 && evt.clientX < canvas.width - player.image.width / 4) {
             player.position.x = evt.clientX;
         }
