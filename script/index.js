@@ -55,16 +55,8 @@ function initialize() {
     if (gameManager.checkGameState(0)) {
       //Lets all enemies fire
       enemies.forEach((e) => e.shoot(3));
-
-      //Check player voice input
-      if (artyomManager.match)
-        player.shoot();
     }
   }, 500);
-  setInterval(() => {
-    //Update user input
-    inputHandler.update();
-  }, 50);
 }
 initialize();
 
@@ -77,6 +69,7 @@ function animate() {
     //Update Enemies, Player and Lasers
     player.draw(context); //Update the Player
     laserManager.update(); //Update all Laser
+    inputHandler.update(); //Update user input
 
     if (enemies.length > 0) {
       // Update all Enemies

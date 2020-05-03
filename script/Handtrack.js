@@ -4,6 +4,7 @@ let imgindex = 1;
 let isVideo = false;
 let model = null;
 let videoInterval = 100;
+let bBox = 0;
 
 const modelParams = {
     flipHorizontal: true, // flip e.g for video  
@@ -38,11 +39,12 @@ function runDetection() {
         model.detect(video).then(predictions => {
             // get the middle x value of the bounding box and map to paddle location
             model.renderPredictions(predictions, canvas, context, video);     
-            if (predictions[0]) {
-                console.log("iets");
-                
+            if (predictions[0]) {                
                 let midval = predictions[0].bbox[0] + (predictions[0].bbox[2] / 2);
+                inputHandler.handTrackUpdate(predictions[0].bbox[0]);
+                bBox = predictions[0].bBox[0];
                 handTrack.posx = document.body.clientWidth * (midval / video.width);
+                console.log(predictions);
             }
             if (isVideo) {
                 setTimeout(() => {

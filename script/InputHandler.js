@@ -20,6 +20,11 @@ class InputHandler {
         }
     }
 
+    handTrackUpdate(boxSize){
+        console.log(bBox[0]);
+        //if(boxSize < bBox/2)
+    }
+
     mouseUpdate(evt){
         if (evt.clientX > player.image.width / 4 && evt.clientX < canvas.width - player.image.width / 4) {
             player.position.x = evt.clientX;
