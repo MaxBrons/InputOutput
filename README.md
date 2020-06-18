@@ -12,8 +12,8 @@ We vragen de input op door gebruik te maken van een library genaamd Handtrack.js
 
 De ruimteschepen komen op je af vliegen vanaf de bovenkant van je scherm. De vijandelijke schepen kunnen ook op je schieten en je hierdoor verslaan.
 
-Als speler kun je bewegen door je hand te bewegen en schieten door schiet,shoot,vuur enz te zeggen.
-De voice recognition doen we via Artyom.js omdat we dan in heel veel talen kunnen herkennen of iemand schiet zegt.
+Als speler kun je bewegen door je hand te bewegen en schieten door je hand tot een vuist te maken.
+De voice recognition doen we via Artyom.js omdat het vele talen herkent. We gebruiken de voice recognition om de speler zijn huidige wapen te veranderen.
 
 
 ## Bijhouden werk
